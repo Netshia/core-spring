@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.TransactionManagementConfigure
 import javax.sql.DataSource;
 
 @Configuration
-@EnableTransactionManagement
+//@EnableTransactionManagement
 public class DatabaseConfig implements TransactionManagementConfigurer {
 
     @Bean

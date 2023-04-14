@@ -38,6 +38,7 @@ class JdbcPersonRepositoryTest {
     @BeforeEach
     void setUp() {
         assertNotNull(jdbcPersonRepository);
+        assertNotNull(personRowMapper);
     }
 
     @Test
@@ -91,13 +92,13 @@ class JdbcPersonRepositoryTest {
 
         // Mock
         when(jdbcTemplate.queryForObject(
-                "SELECT id, last_name, first_name FROM Person WHERE id=?",
+                "SELECT id, last_name, first_name FROM Person WHERE id = ?",
                 personRowMapper,
                 ID))
                 .thenReturn(expectation);
 
         //system under test
-        Person actualResults = jdbcPersonRepository.findById(ID);
+        final Person actualResults = jdbcPersonRepository.findById(ID);
 
         // verify
         assertEquals(expectation, actualResults);

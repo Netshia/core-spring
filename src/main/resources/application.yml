@@ -1,9 +1,23 @@
+#spring:
+#  h2:
+#    console:
+#      enabled: true
+#  datasource:
+#    url: jdbc:h2:mem:testdb
+#    username: sa
+#    password: password
+#    driverClassName: org.h2.Driver
+
+# Local profile
 spring:
-  h2:
-    console:
-      enabled: true
   datasource:
-    url: jdbc:h2:mem:testdb
-    username: sa
-    password: password
-    driverClassName: org.h2.Driver
+    username: root
+    password: blessing
+    url: jdbc:mysql://localhost:3306/core-spring?serverTimezone=UTC
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: update

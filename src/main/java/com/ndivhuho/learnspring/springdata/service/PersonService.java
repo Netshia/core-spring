@@ -12,4 +12,6 @@ public interface PersonService {
     List<Person> findAllMales(final Gender gender);
 
     List<Person> findAllFemales(final Gender gender);
+
+    List<Person> findAllMalesFetchAddressEagerly(final Gender gender);
 }

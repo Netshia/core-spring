@@ -14,4 +14,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 
     @Query("SELECT p FROM #{#entityName} p WHERE p.gender = ?#{#gender.MALE}")
     List<Person> findAllFemales(final Gender gender);
+
+    @Query("SELECT p FROM #{#entityName} p JOIN FETCH p.addresses WHERE p.gender = ?#{#gender.MALE}")
+    List<Person> findAllMalesFetchAddressEagerly(final Gender gender);
 }

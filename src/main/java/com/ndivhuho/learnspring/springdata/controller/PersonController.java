@@ -35,4 +35,10 @@ public class PersonController {
         personService.save(person);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+    @GetMapping("/males-address")
+    public ResponseEntity<?> getAllMalesWithAddress() {
+        final List<Person> males = personService.findAllMalesFetchAddressEagerly(Gender.MALE);
+        return new ResponseEntity<>(males, HttpStatus.OK);
+    }
 }

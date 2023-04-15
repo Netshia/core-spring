@@ -4,6 +4,7 @@ import com.ndivhuho.learnspring.jdbctemplate.entity.Person;
 import com.ndivhuho.learnspring.jdbctemplate.repository.PersonRepository;
 import com.ndivhuho.learnspring.jdbctemplate.service.PersonService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,10 +12,13 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-@RequiredArgsConstructor
 public class PersonServiceImpl implements PersonService {
 
     private final PersonRepository personRepository;
+
+    public PersonServiceImpl(@Qualifier("jdbcPersonRepo") final PersonRepository personRepository) {
+        this.personRepository = personRepository;
+    }
 
     @Transactional(transactionManager = "platformTransactionManager", readOnly = true)
     @Override

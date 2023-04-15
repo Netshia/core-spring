@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository
+@Repository("jdbcPersonRepo")
 public class JdbcPersonRepository implements PersonRepository {
 
     private final JdbcTemplate jdbcTemplate;

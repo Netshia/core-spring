@@ -1,8 +1,6 @@
 package com.ndivhuho.learnspring.springdata.entity;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,9 +11,12 @@ import javax.persistence.ManyToOne;
 @Entity
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Address extends AbstractEntity {
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @EqualsAndHashCode.Exclude
+    @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private Person person;
 

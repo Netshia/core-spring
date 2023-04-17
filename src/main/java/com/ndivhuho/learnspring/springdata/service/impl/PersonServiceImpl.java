@@ -1,15 +1,20 @@
 package com.ndivhuho.learnspring.springdata.service.impl;
 
 import com.ndivhuho.learnspring.springdata.entity.Address;
+import com.ndivhuho.learnspring.springdata.entity.DTO.PersonDTO;
 import com.ndivhuho.learnspring.springdata.entity.Person;
 import com.ndivhuho.learnspring.springdata.enums.Gender;
+import com.ndivhuho.learnspring.springdata.mapper.PersonMapper;
 import com.ndivhuho.learnspring.springdata.repository.PersonRepository;
 import com.ndivhuho.learnspring.springdata.service.AddressService;
 import com.ndivhuho.learnspring.springdata.service.PersonService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service("jpaPersonService")
 public class PersonServiceImpl implements PersonService {
@@ -35,8 +40,15 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public List<Person> findAllMales(final Gender gender) {
-        return personRepository.findAllMales(gender);
+    public List<PersonDTO> findAllMales(final Gender gender) {
+        final List<Person> personList = personRepository.findAllMales(gender);
+
+        var list = personList.stream().map(person -> {
+            person.setAddresses(new ArrayList<>());
+            return person;
+        }).collect(Collectors.toList());
+
+        return PersonMapper.INSTANCE.internalsToDTOs(list);
     }
 
     @Override
@@ -45,8 +57,9 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public List<Person> findAllMalesFetchAddressEagerly(final Gender gender) {
-        return personRepository.findAllMalesFetchAddressEagerly(gender);
+    public List<PersonDTO> findAllMalesFetchAddressEagerly(final Gender gender) {
+        List<Person> personList = personRepository.findAllMalesFetchAddressEagerly(gender);
+        return PersonMapper.INSTANCE.internalsToDTOs(personList);
     }
 
     private void saveAddress(final Address address) {

@@ -1,5 +1,6 @@
 package com.ndivhuho.learnspring.springdata.service;
 
+import com.ndivhuho.learnspring.springdata.entity.DTO.PersonDTO;
 import com.ndivhuho.learnspring.springdata.entity.Person;
 import com.ndivhuho.learnspring.springdata.enums.Gender;
 
@@ -9,9 +10,9 @@ public interface PersonService {
 
     void save(final Person person);
 
-    List<Person> findAllMales(final Gender gender);
+    List<PersonDTO> findAllMales(final Gender gender);
 
     List<Person> findAllFemales(final Gender gender);
 
-    List<Person> findAllMalesFetchAddressEagerly(final Gender gender);
+    List<PersonDTO> findAllMalesFetchAddressEagerly(final Gender gender);
 }

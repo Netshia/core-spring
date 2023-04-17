@@ -1,5 +1,6 @@
 package com.ndivhuho.learnspring.springdata.controller;
 
+import com.ndivhuho.learnspring.springdata.entity.DTO.PersonDTO;
 import com.ndivhuho.learnspring.springdata.entity.Person;
 import com.ndivhuho.learnspring.springdata.enums.Gender;
 import com.ndivhuho.learnspring.springdata.service.PersonService;
@@ -26,7 +27,7 @@ public class PersonController {
 
     @GetMapping("/males")
     public ResponseEntity<?> getAllMales() {
-        final List<Person> males = personService.findAllMales(Gender.MALE);
+        final List<PersonDTO> males = personService.findAllMales(Gender.MALE);
         return new ResponseEntity<>(males, HttpStatus.OK);
     }
 
@@ -38,7 +39,7 @@ public class PersonController {
 
     @GetMapping("/males-address")
     public ResponseEntity<?> getAllMalesWithAddress() {
-        final List<Person> males = personService.findAllMalesFetchAddressEagerly(Gender.MALE);
+        final List<PersonDTO> males = personService.findAllMalesFetchAddressEagerly(Gender.MALE);
         return new ResponseEntity<>(males, HttpStatus.OK);
     }
 }

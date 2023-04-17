@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController("jpaPersonController")
-@RequestMapping("v1/person")
+@RequestMapping("v1/people")
 public class PersonController {
 
     @Qualifier("jpaPersonService")
@@ -37,7 +37,7 @@ public class PersonController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @GetMapping("/males-address")
+    @GetMapping("/males/addresses")
     public ResponseEntity<?> getAllMalesWithAddress() {
         final List<PersonDTO> males = personService.findAllMalesFetchAddressEagerly(Gender.MALE);
         return new ResponseEntity<>(males, HttpStatus.OK);

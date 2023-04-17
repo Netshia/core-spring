@@ -1,6 +1,6 @@
 package com.ndivhuho.learnspring.springdata.mapper;
 
-import com.ndivhuho.learnspring.springdata.entity.DTO.PersonDTO;
+import com.ndivhuho.learnspring.springdata.model.PersonDTO;
 import com.ndivhuho.learnspring.springdata.entity.Person;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

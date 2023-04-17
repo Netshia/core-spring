@@ -1,6 +1,6 @@
 package com.ndivhuho.learnspring.springdata.service;
 
-import com.ndivhuho.learnspring.springdata.entity.DTO.PersonDTO;
+import com.ndivhuho.learnspring.springdata.model.PersonDTO;
 import com.ndivhuho.learnspring.springdata.entity.Person;
 import com.ndivhuho.learnspring.springdata.enums.Gender;
 

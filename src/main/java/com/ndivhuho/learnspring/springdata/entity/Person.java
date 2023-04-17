@@ -1,15 +1,12 @@
 package com.ndivhuho.learnspring.springdata.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.ndivhuho.learnspring.springdata.enums.Gender;
+import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.stereotype.Service;
 
-import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity

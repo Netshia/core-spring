@@ -1,11 +1,8 @@
 package com.ndivhuho.learnspring.springdata.mapper;
 
 import com.ndivhuho.learnspring.springdata.entity.Address;
-import com.ndivhuho.learnspring.springdata.entity.DTO.AddressDTO;
-import com.ndivhuho.learnspring.springdata.entity.DTO.PersonDTO;
-import com.ndivhuho.learnspring.springdata.entity.Person;
+import com.ndivhuho.learnspring.springdata.model.AddressDTO;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 

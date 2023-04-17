@@ -1,7 +1,7 @@
 package com.ndivhuho.learnspring.springdata.service.impl;
 
 import com.ndivhuho.learnspring.springdata.entity.Address;
-import com.ndivhuho.learnspring.springdata.entity.DTO.PersonDTO;
+import com.ndivhuho.learnspring.springdata.model.PersonDTO;
 import com.ndivhuho.learnspring.springdata.entity.Person;
 import com.ndivhuho.learnspring.springdata.enums.Gender;
 import com.ndivhuho.learnspring.springdata.mapper.PersonMapper;

@@ -26,4 +26,6 @@ public class Person extends AbstractEntity {
     @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "person", fetch = FetchType.LAZY)
     private List<Address> addresses = new ArrayList<>();
+
+    private LocalDate anniversaryDate;
 }

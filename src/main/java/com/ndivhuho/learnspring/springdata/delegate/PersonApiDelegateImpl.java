@@ -1,7 +1,9 @@
 package com.ndivhuho.learnspring.springdata.delegate;
 
 import com.ndivhuho.learnspring.api.PersonApiDelegate;
+import com.ndivhuho.learnspring.springdata.entity.Person;
 import com.ndivhuho.learnspring.springdata.enums.Gender;
+import com.ndivhuho.learnspring.springdata.mapper.PersonMapper;
 import com.ndivhuho.learnspring.springdata.model.PersonDTO;
 import com.ndivhuho.learnspring.springdata.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +38,8 @@ public class PersonApiDelegateImpl implements PersonApiDelegate {
 
     @Override
     public ResponseEntity<List<PersonDTO>> savePerson(PersonDTO personDTO) {
-        //personService.save(person);
+        final Person person = PersonMapper.INSTANCE.DTOToInternal(personDTO);
+        personService.save(person);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }

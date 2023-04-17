@@ -79,8 +79,194 @@ paths:
             application/json:
               schema:
                 type: object
+  /v1/members/{id}:
+    get:
+      tags:
+        - Member
+      operationId: getById
+      parameters:
+        - name: id
+          in: path
+          description: Id of a member
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
                 items:
                   $ref: "#/components/schemas/MemberDTO"
+  /v1/members/start/{date}:
+    get:
+      tags:
+        - Member
+      operationId: getByMembershipStartDate
+      parameters:
+        - name: date
+          in: path
+          description: Start date of membership
+          required: true
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/MemberDTO"
+  /v1/members/after/{date}:
+    get:
+      tags:
+        - Member
+      operationId: getByMembershipAfterDate
+      parameters:
+        - name: date
+          in: path
+          description: After Start date of membership
+          required: true
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/MemberDTO"
+  /v1/members/before/{date}:
+    get:
+      tags:
+        - Member
+      operationId: getByMembershipBeforeDate
+      parameters:
+        - name: date
+          in: path
+          description: Before date of membership
+          required: true
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/MemberDTO"
+  /v1/members/{status}:
+    get:
+      tags:
+        - Member
+      operationId: getByStatus
+      parameters:
+        - name: status
+          in: path
+          description: Status of membership
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/MemberDTO"
+  /v1/roles:
+    get:
+      tags:
+        - Role
+      operationId: getAllRoles
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/RoleDTO"
+  /v1/roles/{id}:
+    get:
+      tags:
+        - Role
+      operationId: getAllById
+      parameters:
+        - name: id
+          in: path
+          description: Id of a role
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/RoleDTO"
+  /v1/roles/{memberId}:
+    get:
+      tags:
+        - Role
+      operationId: getAllRolesByMember
+      parameters:
+        - name: memberId
+          in: path
+          description: Id of a member
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/RoleDTO"
+  /v1/roles/member/{roles}:
+    get:
+      tags:
+        - Role
+      operationId: getAllRolesByRole
+      parameters:
+        - name: roles
+          in: path
+          description: Roles of a member
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/RoleDTO"
 components:
   schemas:
     AddressDTO:

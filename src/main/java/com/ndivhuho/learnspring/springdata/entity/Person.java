@@ -28,4 +28,7 @@ public class Person extends AbstractEntity {
     private List<Address> addresses = new ArrayList<>();
 
     private LocalDate anniversaryDate;
+
+    @OneToOne(mappedBy = "person")
+    private Member member;
 }

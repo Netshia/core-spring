@@ -31,6 +31,12 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
+    public MemberDTO findWithRolesById(Long id) {
+        final Member member = memberRepository.findById(id).get();
+        return MemberMapper.INSTANCE.internalToDTO(member);
+    }
+
+    @Override
     public List<MemberDTO> findAllByStatus(int status) {
         final List<Member> members = memberRepository.findAllByStatus(status);
         return MemberMapper.INSTANCE.internalsToDTOs(members);

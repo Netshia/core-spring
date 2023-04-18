@@ -16,6 +16,7 @@ public interface PersonMapper {
 
     PersonDTO internalToDTO(Person person);
 
+    @Mapping(target = "member", ignore = true)
     Person DTOToInternal(PersonDTO personDTO);
 
     List<PersonDTO> internalsToDTOs(List<Person> tasks);

@@ -12,6 +12,8 @@ public interface MemberService {
 
     MemberDTO findById(final Long id);
 
+    MemberDTO findWithRolesById(final Long id);
+
     List<MemberDTO> findAllByStatus(final int status);
 
     List<MemberDTO> findAllByMembershipDate(final LocalDate membershipDate);

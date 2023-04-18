@@ -19,5 +19,7 @@ public interface RoleMapper {
     @Mapping(target = "member", ignore = true)
     Role DTOToInternalToDTO(RoleDTO roleDTO);
 
-    List<RoleDTO> internalsToDTOs(List<Role> addresses);
+    List<RoleDTO> internalsToDTOs(List<Role> roles);
+
+    List<Role> DTOsToInternals(List<RoleDTO> roleDTOS);
 }

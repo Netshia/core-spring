@@ -21,4 +21,8 @@ public class Member extends AbstractEntity {
 
     @Enumerated(EnumType.ORDINAL)
     private StatusValue status;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "person_id", nullable = false)
+    private Person person;
 }

@@ -1,0 +1,18 @@
+{
+  "firstName": "Derick",
+  "lastName": "Makubedu",
+  "dob": "2023-04-14",
+  "gender": "MALE",
+  "addresses": [
+    {
+      "province": "Gauteng",
+      "city": "Johannesburg",
+      "streetName": "14th st"
+    },
+    {
+      "province": "Gauteng",
+      "city": "Ranburg",
+      "streetName": "10th Avenue st"
+    }
+  ]
+}

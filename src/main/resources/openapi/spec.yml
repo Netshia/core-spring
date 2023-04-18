@@ -202,28 +202,6 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/RoleDTO"
-  /v1/roles/{id}:
-    get:
-      tags:
-        - Role
-      operationId: getAllById
-      parameters:
-        - name: id
-          in: path
-          description: Id of a role
-          required: true
-          schema:
-            type: integer
-            format: int64
-      responses:
-        '200':
-          description: ok
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/RoleDTO"
   /v1/roles/{memberId}:
     get:
       tags:
@@ -246,27 +224,44 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/RoleDTO"
-  /v1/roles/member/{roles}:
-    get:
+  /v1/roles/save:
+    post:
       tags:
         - Role
-      operationId: getAllRolesByRole
-      parameters:
-        - name: roles
-          in: path
-          description: Roles of a member
-          required: true
-          schema:
-            type: string
+      operationId: saveRole
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RoleDTO"
       responses:
         '200':
           description: ok
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/RoleDTO"
+                type: object
+  /v1/roles/saveAll:
+    post:
+      tags:
+        - Role
+      operationId: saveAllRole
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/RoleDTO"
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
 components:
   schemas:
     AddressDTO:
@@ -281,6 +276,7 @@ components:
           type: string
         streetName:
           type: string
+
     PersonDTO:
       type: object
       properties:
@@ -306,6 +302,7 @@ components:
         anniversaryDate:
           type: string
           format: date
+
     RoleDTO:
       type: object
       properties:
@@ -318,6 +315,7 @@ components:
             - PASTOR
             - ELDER
             - DEACON
+
     MemberDTO:
       type: object
       properties:
@@ -335,3 +333,6 @@ components:
           enum:
             - ACTIVE
             - DELETED
+        personDTO:
+          type: object
+          $ref: "#/components/schemas/PersonDTO"

@@ -1,0 +1,28 @@
+databaseChangeLog:
+  -  changeSet:
+       id:  1
+       author:  Ndivhuho Netshia
+       changes:
+         -  createTable:
+              tableName: member
+              columns:
+                -  column:
+                     name: id
+                     type: int
+                     autoIncrement: true
+                     constraints:
+                       primaryKey: true
+                       nullable: false
+                -  column:
+                     name: membership_date
+                     type: TIMESTAMP
+                -  column:
+                     name: status
+                     type: varchar(50)
+                -  column:
+                     name: person_id
+                     type: int
+                     constraints:
+                       foreignKeyName: fk_person_id
+                       references: person(id)
+                       nullable: false

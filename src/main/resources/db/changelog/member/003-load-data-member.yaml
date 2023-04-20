@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-loadData-member
+      author: Ndivhuho Netshia
+      changes:
+        - loadData:
+            columns:
+              - column:
+                  name: id
+                  type: numeric
+              - column:
+                  name: membership_date
+                  type: date
+              - column:
+                  name: status
+                  type: numeric
+              - column:
+                  name: person_id
+                  type: numeric
+            commentLineStartsWith: //
+            encoding: UTF-8
+            file: ../data/members.csv
+            quotchar: ''''
+            relativeToChangelogFile: true
+            separator: ','
+            tableName: member

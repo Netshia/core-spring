@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-loadData-address
+      author: Ndivhuho Netshia
+      changes:
+        - loadData:
+            columns:
+              - column:
+                  name: id
+                  type: numeric
+              - column:
+                  name: province
+                  type: string
+              - column:
+                  name: city
+                  type: string
+              - column:
+                  name: street_name
+                  type: string
+              - column:
+                  name: person_id
+                  type: numeric
+            commentLineStartsWith: //
+            encoding: UTF-8
+            file: ../data/addresses.csv
+            quotchar: ''''
+            relativeToChangelogFile: true
+            separator: ','
+            tableName: address

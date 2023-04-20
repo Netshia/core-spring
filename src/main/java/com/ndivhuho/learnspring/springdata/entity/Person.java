@@ -27,6 +27,7 @@ public class Person extends AbstractEntity {
     @OneToMany(mappedBy = "person", fetch = FetchType.LAZY)
     private List<Address> addresses = new ArrayList<>();
 
+    @Column(name = "anni_date")
     private LocalDate anniversaryDate;
 
     @OneToOne(mappedBy = "person")

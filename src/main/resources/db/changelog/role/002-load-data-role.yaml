@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003-loadData-role
+      author: Ndivhuho Netshia
+      changes:
+        - loadData:
+            columns:
+              - column:
+                  name: id
+                  type: numeric
+              - column:
+                  name: role_value
+                  type: string
+              - column:
+                  name: member_id
+                  type: numeric
+            commentLineStartsWith: //
+            encoding: UTF-8
+            file: ../data/roles.csv
+            quotchar: ''''
+            relativeToChangelogFile: true
+            separator: ','
+            tableName: role

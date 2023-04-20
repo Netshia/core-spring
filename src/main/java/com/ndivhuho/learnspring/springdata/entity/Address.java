@@ -15,7 +15,7 @@ public class Address extends AbstractEntity {
 
     @EqualsAndHashCode.Exclude
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "person_id", nullable = false)
     private Person person;
 
     private String province;

@@ -1,0 +1,25 @@
+databaseChangeLog:
+  -  changeSet:
+       id:  1
+       author:  Ndivhuho Netshia
+       changes:
+         -  createTable:
+              tableName: role
+              columns:
+                -  column:
+                     name: id
+                     type: int
+                     autoIncrement: true
+                     constraints:
+                       primaryKey: true
+                       nullable: false
+                -  column:
+                     name: role_value
+                     type: varchar(50))
+                -  column:
+                     name: member_id
+                     type: int
+                     constraints:
+                       foreignKeyName: fk_member_id
+                       references: member(id)
+                       nullable: false

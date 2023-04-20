@@ -14,10 +14,13 @@ spring:
     username: root
     password: blessing
     url: jdbc:mysql://localhost:3306/core-spring?serverTimezone=UTC
-  jpa:
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
-    hibernate:
-      ddl-auto: update
+#  jpa:
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+#    hibernate:
+#      ddl-auto: update
+  liquibase:
+    change-log: classpath:db/changelog/changelog-master.yml
+    enabled: true

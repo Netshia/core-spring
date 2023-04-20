@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003-update-column-status-data-type
+      author: Ndivhuho Netshia
+      changes:
+        - modifyDataType:
+            columnName: status
+            newDataType: int
+            tableName: member

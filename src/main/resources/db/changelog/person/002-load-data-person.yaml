@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-loadData-person
+      author: Ndivhuho Netshia
+      changes:
+        - loadData:
+            columns:
+              - column:
+                  name: id
+                  type: numeric
+              - column:
+                  name: first_name
+                  type: string
+              - column:
+                  name: last_name
+                  type: string
+              - column:
+                  name: dob
+                  type: date
+              - column:
+                  name: gender
+                  type: string
+              - column:
+                  name: anni_date
+                  type: date
+            commentLineStartsWith: //
+            encoding: UTF-8
+            file: ../data/persons.csv
+            quotchar: ''''
+            relativeToChangelogFile: true
+            separator: ','
+            tableName: person

@@ -1,6 +1,5 @@
 package com.ndivhuho.learnspring.springdata.entity;
 
-import com.ndivhuho.learnspring.springdata.enums.StatusValue;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,7 +20,11 @@ public class Member extends AbstractEntity {
 
     private boolean status;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "person_id", nullable = false)
     private Person person;
+
+    public boolean getStatus() {
+        return status;
+    }
 }

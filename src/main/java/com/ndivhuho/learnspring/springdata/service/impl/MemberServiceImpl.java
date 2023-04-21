@@ -36,7 +36,7 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public List<MemberDTO> findAllByStatus(int status) {
+    public List<MemberDTO> findAllByStatus(boolean status) {
         final List<Member> members = memberRepository.findAllByStatus(status);
         return MemberMapper.INSTANCE.internalsToDTOs(members);
     }

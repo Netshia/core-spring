@@ -43,7 +43,7 @@ public class MemberApiDelegateImpl implements MemberApiDelegate {
     }
 
     @Override
-    public ResponseEntity<List<MemberDTO>> getByStatus(Integer status) {
+    public ResponseEntity<List<MemberDTO>> getByStatus(Boolean status) {
         final List<MemberDTO> memberDTOS = memberService.findAllByStatus(status);
         return new ResponseEntity<>(memberDTOS, HttpStatus.OK);
     }

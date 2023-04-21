@@ -178,7 +178,7 @@ paths:
           description: Status of membership
           required: true
           schema:
-            type: integer
+            type: boolean
       responses:
         '200':
           description: ok
@@ -330,9 +330,6 @@ components:
             $ref: "#/components/schemas/RoleDTO"
         status:
           type: string
-          enum:
-            - ACTIVE
-            - DELETED
         personDTO:
           type: object
           $ref: "#/components/schemas/PersonDTO"

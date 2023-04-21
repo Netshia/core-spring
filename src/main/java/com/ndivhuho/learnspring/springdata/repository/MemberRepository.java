@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface MemberRepository extends JpaRepository<Member, Long> {
-
+    
     List<Member> findAllByStatus(final int status);
 
     List<Member> findAllByMembershipDate(final LocalDate membershipDate);

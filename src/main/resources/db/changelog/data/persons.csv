@@ -1,6 +1,6 @@
 id,first_name,last_name,dob,gender,anni_date
-1,"Ndivhuho","Netshia","1997-06-06","MALE","2023-04-14"
-2,"Ntakuseni","Netshia","1998-06-29","MALE","2022-03-1"
-3,"Mothusi","Mulorane","1995-08-13","MALE","2021-09-11"
-4,"Op","Algin","1997-02-22","FEMALE","2020-11-10"
-5,"Mpho","Mulaudzi","1990-06-22","FEMALE","2023-03-10"
+1,Ndivhuho,Netshia,'1997-06-06',MALE,'2022-04-14'
+2,Ntakuseni,Netshia,1998-06-29,MALE,'2022-03-01'
+3,Mothusi,Mulorane,'1995-08-13',MALE,'2021-09-11'
+4,Op,Algin,'1997-02-22',FEMALE,'2020-11-10'
+5,Mpho,Mulaudzi,'1990-06-22',FEMALE,'2023-03-10'

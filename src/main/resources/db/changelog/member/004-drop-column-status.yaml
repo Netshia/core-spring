@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: drop-column-status
+      author: Ndivhuho Netshia
+      changes:
+        - dropColumn:
+            columnName: status
+            tableName: member

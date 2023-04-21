@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: load-data-member-status-column
+      author: Ndivhuho Netshia
+      changes:
+        - update:
+            columns:
+              - column:
+                  name: status
+                  type: numeric
+            commentLineStartsWith: //
+            encoding: UTF-8
+            file: ../data/members-status-data.csv
+            quotchar: ''''
+            relativeToChangelogFile: true
+            separator: ','
+            tableName: member

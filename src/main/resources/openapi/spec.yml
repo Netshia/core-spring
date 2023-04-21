@@ -79,7 +79,7 @@ paths:
             application/json:
               schema:
                 type: object
-  /v1/members/{id}:
+  /v1/members/id/{id}:
     get:
       tags:
         - Member

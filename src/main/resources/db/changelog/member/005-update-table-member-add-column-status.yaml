@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: update-table-member-add-column-status
+      author: Ndivhuho Netshia
+      changes:
+        - addColumn:
+            tableName: member
+            columns:
+              - column:
+                  name: status
+                  type: int

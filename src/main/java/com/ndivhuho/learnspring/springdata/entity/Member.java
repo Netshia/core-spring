@@ -19,8 +19,7 @@ public class Member extends AbstractEntity {
     @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
     private List<Role> roles;
 
-    @Enumerated(EnumType.ORDINAL)
-    private StatusValue status;
+    private boolean status;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "person_id", nullable = false)

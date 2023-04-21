@@ -17,3 +17,9 @@ databaseChangeLog:
       file: db/changelog/role/002-load-data-role.yaml
   - include:
       file: db/changelog/address/002-load-data-address.yaml
+  - include:
+      file: db/changelog/member/004-drop-column-status.yaml
+  - include:
+      file: db/changelog/member/005-update-table-member-add-column-status.yaml
+  - include:
+      file: db/changelog/member/006-load-data-member-status-column.yaml

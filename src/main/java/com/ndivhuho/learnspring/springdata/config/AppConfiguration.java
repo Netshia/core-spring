@@ -6,6 +6,7 @@ import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.reactive.function.client.WebClient;
 
 public class AppConfiguration {
 
@@ -25,5 +26,10 @@ public class AppConfiguration {
                                 .name("Apache 2.0")
                                 .url("http://springdoc.org")
                         ));
+    }
+
+    @Bean
+    public WebClient webClient() {
+        return WebClient.builder().build();
     }
 }

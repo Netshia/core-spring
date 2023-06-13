@@ -12,6 +12,7 @@ tags:
     description: Api generates data for member
   - name: Role
     description: Api generates data for role
+  - name: Policies
 paths:
   /v1/people/males:
     get:

@@ -7,6 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -55,5 +59,25 @@ public class PersonController {
     public ResponseEntity<Integer> createTable(@PathVariable(name = "name") final String name) {
         final Integer rowsAffected = personService.createTable(name);
         return new ResponseEntity<>(rowsAffected, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/reader")
+    public String readBody(Reader reader) throws IOException {
+        List<String> dataList = new ArrayList<>();
+        try(BufferedReader br = new BufferedReader(reader)){
+            String line = null;
+            int i = 0;
+            while ((line = br.readLine()) != null) {
+                dataList.add(line + i++);
+            }
+        }
+        System.out.println(dataList);
+        return "Testing the Reader object";
+    }
+
+    @GetMapping("/building/{buildingId}")
+    public String matrix(@PathVariable String buildingId, @MatrixVariable Map<String, Integer> matrixVars) {
+        System.out.println(matrixVars);
+        return "home/sandbox";
     }
 }

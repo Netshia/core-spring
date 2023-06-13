@@ -97,6 +97,10 @@
             <artifactId>liquibase-core</artifactId>
             <version>4.21.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -200,6 +204,38 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.3.1</version>
+                 <configuration>
+                    <from>
+                        <image>gcr.io/distroless/java:17</image>
+                    </from>
+                        <container>
+                            <mainClass>com.ndivhuho.learnspring.LearnSpringApplication.java</mainClass>
+                        </container>
+                    <to>
+                        <image>gdpcontainerregistry.azurecr.io/lion</image>
+                        <auth>
+                            <password>UsGrKj2Co4bMfeq+n68Lp24Y0HxBMVJpFKrKqSOMl/+ACRByHZ70</password>
+                            <username>GDPContainerRegistry</username>
+                        </auth>
+                    </to>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${maven-jar-plugin.version}</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.ndivhuho.learnspring.LearnSpringApplication</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
             </plugin>
         </plugins>
     </build>

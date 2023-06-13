@@ -14,7 +14,7 @@ class DatabaseConfigTest {
     @Autowired
     private PropertyDatabaseConfig propertyDatabaseConfig;
 
-    //@Test
+    @Test
     public void whenFactoryProvidedThenYamlPropertiesInjected() {
         assertThat(propertyDatabaseConfig.getDriverClassName()).isEqualTo("org.h2.Driver");
         assertThat(propertyDatabaseConfig.getUrl()).isEqualTo("jdbc:h2:mem:testdb");
